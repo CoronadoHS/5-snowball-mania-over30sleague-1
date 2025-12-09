@@ -8,6 +8,11 @@
 
 import random
 import time
+from colorama import init, Fore, Back, Style
+
+init()
+
+print("Hello " + Fore.RED + "World!")
 
 
 def printIntro():
@@ -37,6 +42,17 @@ def getNames():
     ' Return: the list of player names
     ' 
     '''
+    playerList = []
+    myName = input("What is your name?  ")
+    playerList.append(myName)
+    print("Add other players (one at a time) by typing their names and hitting ENTER.  Type DONE when finished.  ")
+    nextName = input()
+    while (nextName != "DONE"):
+        playerList.append(nextName)
+        nextName = input()
+    print("Great - time to play!")
+    print(3 + "uh oh")
+    return playerList
 
 
 def getThrower(players):
@@ -136,19 +152,21 @@ def runProgram():
     ' Call the method that will print the intro messages
     ' Call the method that will return a list of player names.  Save the list in a variable.
     ' Call the method that will simulate the snowball fight
-    ' Call the method that will print the outro messagees
+    ' Call the method that will print the outro messages
     '
     ' Return: none
     '''
     printIntro()
+    # testPlayers = ["Jack", "Sam", "Eliana", "Aanya", "Izaiah", "Audrey", "Elam", "John", "Jared", "Aron", "Sebastien", "Tyler", "Collin", "Taylor", "Will", "Nolan", "Llyden", "Xavier", "Landon", "Mr. Holthouse", "Mr. Yeh"]
+    testPlayers = getNames()
+    playSnowballFight(testPlayers)
+    printOutro(testPlayers[0])
 
 
 runProgram()
 
 
-testPlayers = ["Jack", "Sam", "Eliana", "Aanya", "Izaiah", "Audrey", "Elam", "John", "Jared", "Aron", "Sebastien", "Tyler", "Collin", "Taylor", "Will", "Nolan", "Llyden", "Xavier", "Landon", "Mr. Holthouse", "Mr. Yeh"]
-playSnowballFight(testPlayers)
-printOutro(testPlayers[0])
+
 # testThrower = getThrower(testPlayers)
 # testVictim = getVictim(testPlayers, testThrower)
 # testHit = getHitResult()
