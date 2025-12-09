@@ -8,6 +8,11 @@
 
 import random
 import time
+from colorama import init, Fore, Back, Style
+
+init()
+
+print("Hello " + Fore.RED + "World!")
 
 
 def printIntro():
@@ -46,6 +51,7 @@ def getNames():
         playerList.append(nextName)
         nextName = input()
     print("Great - time to play!")
+    print(3 + "uh oh")
     return playerList
 
 
